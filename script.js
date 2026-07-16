@@ -1,157 +1,163 @@
-const screen = document.getElementById("screen");
-const history = document.getElementById("history");
-const buttons = document.querySelectorAll(".btn");
-const themeBtn = document.getElementById("theme-btn");
+const userName = document.getElementById("userName");
+const question = document.getElementById("question");
+const options = document.querySelectorAll(".option");
+const nextBtn = document.getElementById("nextBtn");
+const timer = document.getElementById("timer");
+const progressBar = document.getElementById("progressBar");
+const themeBtn = document.getElementById("themeBtn");
 
-let expression = "";
+userName.innerText = localStorage.getItem("username") || "Guest";
 
-// --------------------
-// Calculator Buttons
-// --------------------
-buttons.forEach(button => {
+let currentQuestion = 0;
+let score = 0;
+let selected = false;
+let time = 30;
+let interval;
 
-    button.addEventListener("click", () => {
+// Load first question
+showQuestion();
 
-        const value = button.dataset.value;
+function showQuestion() {
 
-        switch(value){
+    clearInterval(interval);
 
-            case "AC":
-                expression = "";
-                screen.value = "";
-                history.textContent = "";
-                break;
+    selected = false;
 
-            case "DEL":
-                expression = expression.slice(0,-1);
-                screen.value = expression;
-                break;
+    time = 30;
 
-            case "=":
-                calculate();
-                break;
+    timer.innerText = time;
 
-            default:
-                expression += value;
-                screen.value = expression;
+    progressBar.style.width =
+        ((currentQuestion + 1) / questions.length) * 100 + "%";
 
-        }
+    const q = questions[currentQuestion];
+
+    question.innerText = q.question;
+
+    options.forEach((btn, i) => {
+
+        btn.innerText = q.options[i];
+
+        btn.disabled = false;
+
+        btn.classList.remove("correct", "wrong");
+
+        btn.onclick = () => selectAnswer(i);
 
     });
 
-});
+    startTimer();
 
-// --------------------
-// Calculate
-// --------------------
+}
 
-function calculate(){
+function startTimer(){
 
-    if(expression==="") return;
+    interval = setInterval(()=>{
 
-    try{
+        time--;
 
-        history.textContent = expression + " =";
+        timer.innerText=time;
 
-        let result = Function('"use strict";return (' + expression + ')')();
+        if(time<=0){
 
-        if(!isFinite(result)){
-            screen.value="Error";
-            expression="";
-            return;
+            clearInterval(interval);
+
+            revealAnswer();
+
         }
 
-        expression=result.toString();
-        screen.value=expression;
+    },1000);
+
+}
+
+function selectAnswer(index){
+
+    if(selected) return;
+
+    selected=true;
+
+    clearInterval(interval);
+
+    let correct=questions[currentQuestion].answer;
+
+    options.forEach(btn=>btn.disabled=true);
+
+    if(index===correct){
+
+        score++;
+
+        options[index].classList.add("correct");
 
     }
 
-    catch{
+    else{
 
-        screen.value="Error";
-        expression="";
+        options[index].classList.add("wrong");
+
+        options[correct].classList.add("correct");
 
     }
 
 }
 
-// --------------------
-// Keyboard Support
-// --------------------
+function revealAnswer(){
 
-document.addEventListener("keydown",(e)=>{
+    let correct=questions[currentQuestion].answer;
 
-    const key=e.key;
+    options.forEach(btn=>btn.disabled=true);
 
-    if(
-        (key>="0" && key<="9") ||
-        ["+","-","*","/",".","%"].includes(key)
-    ){
+    options[correct].classList.add("correct");
 
-        expression+=key;
-        screen.value=expression;
+}
 
-    }
+nextBtn.onclick=()=>{
 
-    if(key==="Enter"){
+    currentQuestion++;
 
-        e.preventDefault();
-        calculate();
+    if(currentQuestion<questions.length){
+
+        showQuestion();
 
     }
 
-    if(key==="Backspace"){
+    else{
 
-        expression=expression.slice(0,-1);
-        screen.value=expression;
+        localStorage.setItem("score",score);
 
-    }
-
-    if(key==="Escape"){
-
-        expression="";
-        screen.value="";
-        history.textContent="";
+        window.location="result.html";
 
     }
 
-});
+};
 
-// --------------------
-// Dark / Light Theme
-// --------------------
+// Theme
 
-themeBtn.addEventListener("click",()=>{
+themeBtn.onclick=()=>{
 
     document.body.classList.toggle("light");
 
     if(document.body.classList.contains("light")){
 
-        themeBtn.innerHTML="🌞";
+        themeBtn.innerHTML="☀️";
+
         localStorage.setItem("theme","light");
 
-    }else{
+    }
+
+    else{
 
         themeBtn.innerHTML="🌙";
+
         localStorage.setItem("theme","dark");
 
     }
 
-});
-
-// --------------------
-// Load Theme
-// --------------------
-
-window.onload=()=>{
-
-    const savedTheme=localStorage.getItem("theme");
-
-    if(savedTheme==="light"){
-
-        document.body.classList.add("light");
-        themeBtn.innerHTML="🌞";
-
-    }
-
 };
+
+if(localStorage.getItem("theme")=="light"){
+
+    document.body.classList.add("light");
+
+    themeBtn.innerHTML="☀️";
+
+}

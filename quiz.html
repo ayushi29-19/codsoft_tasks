@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Quiz</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="background">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="quiz-container">
+
+        <!-- Header -->
+        <div class="quiz-header">
+
+            <h2>Online Quiz</h2>
+
+            <div class="right">
+
+                <span id="userName">Guest</span>
+
+                <button id="themeBtn">🌙</button>
+
+            </div>
+
+        </div>
+
+        <!-- Progress Bar -->
+
+        <div class="progress-container">
+
+            <div id="progressBar"></div>
+
+        </div>
+
+        <!-- Timer -->
+
+        <div class="timer">
+
+            ⏳ Time Left :
+            <span id="timer">30</span>s
+
+        </div>
+
+        <!-- Question -->
+
+        <h3 id="question"></h3>
+
+        <!-- Options -->
+
+        <div id="options">
+
+            <button class="option"></button>
+
+            <button class="option"></button>
+
+            <button class="option"></button>
+
+            <button class="option"></button>
+
+        </div>
+
+        <!-- Next Button -->
+
+        <button id="nextBtn">
+
+            Next Question →
+
+        </button>
+
+    </div>
+
+    <!-- IMPORTANT -->
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
