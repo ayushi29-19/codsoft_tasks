@@ -1,4 +1,8 @@
-/* Google Font */
+/* =========================
+   GLOBAL STYLE
+========================= */
+
+
 *{
     margin:0;
     padding:0;
@@ -6,484 +10,722 @@
     font-family:'Poppins',sans-serif;
 }
 
+
 body{
+
+    background:#070b18;
+    color:white;
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(135deg,#0f172a,#1e3a8a,#111827);
-    overflow:hidden;
-    transition:.4s;
-}
-
-/* Light Theme */
-body.light{
-    background:linear-gradient(135deg,#74ebd5,#9face6);
-}
-
-/* Animated Background */
-
-.background{
-    position:fixed;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    z-index:-1;
-}
-
-.background span{
-    position:absolute;
-    border-radius:50%;
-    background:rgba(255,255,255,.08);
-    animation:float 8s infinite ease-in-out;
-}
-
-.background span:nth-child(1){
-    width:220px;
-    height:220px;
-    left:8%;
-    top:10%;
-}
-
-.background span:nth-child(2){
-    width:180px;
-    height:180px;
-    right:8%;
-    bottom:8%;
-    animation-delay:2s;
-}
-
-.background span:nth-child(3){
-    width:140px;
-    height:140px;
-    left:45%;
-    bottom:15%;
-    animation-delay:4s;
-}
-
-@keyframes float{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-30px);
-}
+    transition:0.3s;
 
 }
 
-/* Cards */
 
-.login-card,
-.quiz-container,
-.result-card{
 
-width:450px;
-padding:30px;
+a{
 
-background:rgba(255,255,255,.10);
-
-border:1px solid rgba(255,255,255,.20);
-
-backdrop-filter:blur(15px);
-
-border-radius:20px;
-
-box-shadow:0 15px 40px rgba(0,0,0,.35);
-
-transition:.3s;
+    text-decoration:none;
+    color:white;
 
 }
 
-body.light .login-card,
-body.light .quiz-container,
-body.light .result-card{
 
-background:rgba(255,255,255,.85);
-
-}
-
-/* Headings */
-
-h1,h2,h3,p{
-
-color:white;
-
-}
-
-body.light h1,
-body.light h2,
-body.light h3,
-body.light p{
-
-color:#222;
-
-}
-
-.login-card h1,
-.result-card h1{
-
-text-align:center;
-margin-bottom:10px;
-
-}
-
-.login-card p{
-
-text-align:center;
-margin-bottom:20px;
-
-}
-
-/* Input */
-
-input{
-
-width:100%;
-
-padding:15px;
-
-margin-bottom:20px;
-
-border:none;
-
-outline:none;
-
-border-radius:12px;
-
-font-size:16px;
-
-}
-
-/* Buttons */
 
 button{
 
-cursor:pointer;
-
-border:none;
-
-border-radius:12px;
-
-transition:.3s;
+    cursor:pointer;
+    border:none;
 
 }
 
-/* Login Button */
 
-#startBtn{
 
-width:100%;
 
-padding:15px;
+/* =========================
+   NAVBAR
+========================= */
 
-font-size:18px;
 
-background:#2563eb;
+.navbar{
 
-color:white;
+    width:100%;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 
-margin-bottom:15px;
+    background:rgba(255,255,255,0.05);
 
-}
+    backdrop-filter:blur(15px);
 
-#startBtn:hover{
+    border-bottom:1px solid rgba(255,255,255,0.1);
 
-background:#1d4ed8;
+    position:sticky;
+    top:0;
+    z-index:100;
 
-transform:translateY(-2px);
-
-}
-
-/* Theme */
-
-#themeBtn{
-
-width:45px;
-
-height:45px;
-
-font-size:18px;
-
-background:#111827;
-
-color:white;
 
 }
 
-#themeBtn:hover{
 
-transform:rotate(180deg);
 
-}
+.logo{
 
-/* Quiz Header */
-
-.quiz-header{
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
-margin-bottom:20px;
+    font-size:28px;
+    font-weight:700;
 
 }
 
-.right{
 
-display:flex;
 
-align-items:center;
+.logo span{
 
-gap:10px;
+    color:#00eaff;
 
-}
-
-#userName{
-
-font-weight:600;
-
-color:#38bdf8;
+    text-shadow:
+    0 0 10px #00eaff;
 
 }
 
-/* Progress */
 
-.progress-container{
 
-width:100%;
 
-height:10px;
+nav{
 
-background:#d1d5db;
-
-border-radius:20px;
-
-overflow:hidden;
-
-margin-bottom:20px;
+    display:flex;
+    align-items:center;
+    gap:25px;
 
 }
 
-#progressBar{
 
-height:100%;
 
-width:0%;
+nav a{
 
-background:#22c55e;
-
-transition:.4s;
+    font-size:16px;
+    transition:0.3s;
 
 }
 
-/* Timer */
 
-.timer{
 
-font-size:18px;
+nav a:hover,
+.active{
 
-font-weight:600;
+    color:#00eaff;
 
-margin-bottom:20px;
-
-color:#fbbf24;
+    text-shadow:
+    0 0 10px #00eaff;
 
 }
 
-/* Question */
 
-#question{
 
-margin-bottom:20px;
 
-min-height:70px;
+#theme-toggle{
 
-}
+    background:#111827;
 
-/* Options */
+    color:white;
 
-#options{
+    padding:10px 14px;
 
-display:grid;
+    border-radius:50%;
 
-gap:15px;
-
-margin-bottom:20px;
+    font-size:18px;
 
 }
 
-.option{
 
-padding:15px;
 
-font-size:16px;
 
-background:#1e40af;
 
-color:white;
+/* =========================
+   HERO SECTION
+========================= */
 
-text-align:left;
 
-}
+.hero{
 
-.option:hover{
+    min-height:85vh;
 
-background:#2563eb;
+    display:flex;
 
-transform:scale(1.02);
+    align-items:center;
 
-}
+    justify-content:center;
 
-.option.correct{
+    text-align:center;
 
-background:#16a34a;
 
 }
 
-.option.wrong{
 
-background:#dc2626;
 
-}
+.hero-content h2{
 
-/* Next Button */
+    font-size:55px;
 
-#nextBtn{
+    margin-bottom:20px;
 
-width:100%;
-
-padding:15px;
-
-font-size:18px;
-
-background:#10b981;
-
-color:white;
 
 }
 
-#nextBtn:hover{
 
-background:#059669;
 
-}
+.hero-content p{
 
-/* Result */
+    font-size:18px;
 
-.score-box{
+    color:#cbd5e1;
 
-margin:25px 0;
-
-padding:20px;
-
-border-radius:15px;
-
-background:rgba(255,255,255,.10);
-
-text-align:center;
+    margin-bottom:30px;
 
 }
 
-body.light .score-box{
 
-background:#f1f5f9;
 
-}
 
-#finalScore{
+.btn{
 
-font-size:40px;
+    display:inline-block;
 
-color:#22c55e;
+    padding:14px 30px;
 
-margin:10px 0;
+    border-radius:30px;
 
-}
+    background:#00eaff;
 
-#percentage{
+    color:#001018;
 
-font-size:22px;
+    font-weight:600;
 
-font-weight:600;
+    box-shadow:
 
-color:#38bdf8;
+    0 0 15px #00eaff;
 
-}
 
-#message{
+    transition:0.3s;
 
-text-align:center;
-
-margin-bottom:20px;
-
-font-size:18px;
 
 }
 
-/* Result Buttons */
 
-.buttons{
 
-display:flex;
+.btn:hover{
 
-justify-content:center;
+    transform:translateY(-5px);
 
-gap:15px;
+    box-shadow:
 
-flex-wrap:wrap;
+    0 0 30px #00eaff;
 
 }
 
-.buttons button{
 
-padding:12px 18px;
 
-background:#2563eb;
 
-color:white;
 
-}
+/* =========================
+ FEATURES
+========================= */
 
-.buttons button:hover{
 
-background:#1d4ed8;
+.features{
 
-}
+    display:grid;
 
-/* Responsive */
+    grid-template-columns:
+    repeat(auto-fit,minmax(250px,1fr));
 
-@media(max-width:500px){
+    gap:25px;
 
-.login-card,
-.quiz-container,
-.result-card{
+    padding:50px 8%;
 
-width:95%;
-padding:20px;
 
 }
 
-.quiz-header{
 
-flex-direction:column;
-gap:15px;
+
+.feature-card{
+
+    background:
+    rgba(255,255,255,0.06);
+
+
+    padding:30px;
+
+    border-radius:20px;
+
+
+    border:1px solid rgba(255,255,255,0.1);
+
+
+    transition:0.3s;
+
 
 }
 
-.buttons{
 
-flex-direction:column;
+
+.feature-card:hover{
+
+
+    transform:translateY(-8px);
+
+    box-shadow:
+
+    0 0 25px rgba(0,234,255,.4);
+
 
 }
 
-.buttons button{
 
-width:100%;
+
+
+
+/* =========================
+ PRODUCTS
+========================= */
+
+
+.products-page,
+.cart-page,
+.checkout-page,
+.success-page{
+
+
+    padding:50px 8%;
+
 
 }
+
+
+
+
+.products-page h2,
+.cart-page h2,
+.checkout-page h2{
+
+
+    text-align:center;
+
+    font-size:35px;
+
+    margin-bottom:35px;
+
+
+}
+
+
+
+
+.product-tools{
+
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+    margin-bottom:40px;
+
+}
+
+
+
+.product-tools input,
+.product-tools select,
+input,
+textarea,
+select{
+
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    background:#111827;
+
+    color:white;
+
+    border:1px solid #334155;
+
+
+}
+
+
+
+
+.product-grid{
+
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(250px,1fr));
+
+    gap:30px;
+
+
+}
+
+
+
+
+.product-card{
+
+
+    background:
+
+    rgba(255,255,255,.07);
+
+
+    padding:25px;
+
+    border-radius:20px;
+
+
+    border:1px solid rgba(255,255,255,.1);
+
+
+    transition:.3s;
+
+
+}
+
+
+
+.product-card:hover{
+
+
+    transform:translateY(-10px);
+
+
+    box-shadow:
+
+    0 0 25px rgba(0,234,255,.3);
+
+
+}
+
+
+
+.product-card img{
+
+    width:100%;
+
+    border-radius:15px;
+
+
+}
+
+
+
+.rating{
+
+    color:#ffd700;
+
+}
+
+
+
+.wishlist{
+
+    background:none;
+
+    font-size:25px;
+
+}
+
+
+
+
+
+/* =========================
+ CART
+========================= */
+
+
+.cart-container{
+
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+
+}
+
+
+
+.cart-item{
+
+
+    background:#111827;
+
+    padding:20px;
+
+    border-radius:15px;
+
+
+}
+
+
+
+.cart-summary,
+.checkout-summary,
+.checkout-box,
+.success-box{
+
+
+    background:
+
+    rgba(255,255,255,.06);
+
+
+    padding:30px;
+
+    border-radius:20px;
+
+    margin-top:30px;
+
+
+    border:1px solid rgba(255,255,255,.1);
+
+
+}
+
+
+
+
+
+/* =========================
+ CHECKOUT
+========================= */
+
+
+.checkout-box{
+
+
+    max-width:700px;
+
+    margin:auto;
+
+
+}
+
+
+form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+
+}
+
+
+
+
+textarea{
+
+    height:120px;
+
+    resize:none;
+
+
+}
+
+
+
+
+/* =========================
+ SUCCESS PAGE
+========================= */
+
+
+.success-page{
+
+    min-height:70vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+
+}
+
+
+
+.success-box{
+
+
+    text-align:center;
+
+
+}
+
+
+
+.success-icon{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+
+    animation:pop .8s infinite alternate;
+
+
+}
+
+
+
+@keyframes pop{
+
+
+from{
+
+transform:scale(1);
+
+}
+
+
+to{
+
+transform:scale(1.15);
+
+}
+
+
+}
+
+
+
+
+
+/* =========================
+ FOOTER
+========================= */
+
+
+footer{
+
+
+    text-align:center;
+
+    padding:25px;
+
+    color:#94a3b8;
+
+
+}
+
+
+
+
+
+
+/* =========================
+ LIGHT THEME
+========================= */
+
+
+.light-mode{
+
+
+    background:#f8fafc;
+
+    color:#111827;
+
+
+}
+
+
+
+.light-mode .navbar{
+
+    background:white;
+
+}
+
+
+
+.light-mode a{
+
+    color:#111827;
+
+}
+
+
+
+.light-mode .feature-card,
+.light-mode .product-card,
+.light-mode .cart-summary,
+.light-mode .checkout-box,
+.light-mode .success-box{
+
+
+    background:white;
+
+    color:#111827;
+
+
+}
+
+
+
+
+
+/* =========================
+ RESPONSIVE
+========================= */
+
+
+@media(max-width:768px){
+
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+.hero-content h2{
+
+    font-size:35px;
+
+}
+
+
+
+.product-tools{
+
+    flex-direction:column;
+
+}
+
+
+
+nav{
+
+    gap:15px;
+
+}
+
 
 }

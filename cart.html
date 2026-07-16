@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ShopSphere | Home</title>
+<title>Cart | ShopSphere</title>
 
 <link rel="stylesheet" href="css/style.css">
 
@@ -16,6 +16,9 @@
 <body>
 
 
+
+<!-- Navbar -->
+
 <header class="navbar">
 
 
@@ -24,15 +27,20 @@ Shop<span>Sphere</span>
 </h1>
 
 
+
 <nav>
 
-<a href="index.html">Home</a>
+<a href="index.html">
+Home
+</a>
+
 
 <a href="products.html">
 Products
 </a>
 
-<a href="cart.html">
+
+<a href="cart.html" class="active">
 Cart 🛒
 </a>
 
@@ -49,83 +57,74 @@ Cart 🛒
 
 
 
-<section class="hero">
 
 
-<div class="hero-content">
+<!-- Cart Section -->
+
+
+<section class="cart-page">
 
 
 <h2>
-Shop Smart.
-Live Better.
+Your Shopping Cart
 </h2>
 
 
+
+<div 
+id="cart-items"
+class="cart-container">
+
+
+<!-- Cart items will appear here -->
+
+</div>
+
+
+
+
+
+<div class="cart-summary">
+
+
+<h3>
+Order Summary
+</h3>
+
+
+
 <p>
-Discover premium products with modern shopping experience.
+Total Items:
+<span id="total-items">
+0
+</span>
 </p>
 
 
-<a href="products.html" class="btn">
-Explore Products
+
+<p>
+Total Price:
+₹
+<span id="total-price">
+0
+</span>
+</p>
+
+
+
+<a href="checkout.html" class="btn">
+Proceed To Checkout
 </a>
 
 
 </div>
 
 
-</section>
-
-
-
-
-<section class="features">
-
-
-<div class="feature-card">
-
-<h3>
-🚚 Fast Delivery
-</h3>
-
-<p>
-Quick and secure delivery.
-</p>
-
-</div>
-
-
-
-<div class="feature-card">
-
-<h3>
-🔒 Secure Payment
-</h3>
-
-<p>
-100% safe transactions.
-</p>
-
-</div>
-
-
-
-
-<div class="feature-card">
-
-<h3>
-⭐ Quality Products
-</h3>
-
-<p>
-Best products at best prices.
-</p>
-
-</div>
-
 
 
 </section>
+
+
 
 
 
@@ -141,9 +140,13 @@ Best products at best prices.
 
 
 
+
+
+<script src="js/cart.js"></script>
+
 <script src="js/theme.js"></script>
 
 
 </body>
 
-</html>>
+</html>
