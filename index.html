@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Online Quiz Application</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</div>
+
+<div class="login-card">
+
+    <h1>Online Quiz</h1>
+
+    <p>Test your knowledge with our interactive quiz.</p>
+
+    <input
+        type="text"
+        id="username"
+        placeholder="Enter Your Name">
+
+    <button id="startBtn">
+
+        Start Quiz
+
+    </button>
+
+    <button id="themeBtn">
+
+        🌙
+
+    </button>
+
+</div>
+
+<script>
+
+const startBtn=document.getElementById("startBtn");
+
+startBtn.onclick=()=>{
+
+const username=document.getElementById("username").value.trim();
+
+if(username===""){
+
+alert("Please enter your name.");
+
+return;
+
+}
+
+localStorage.setItem("username",username);
+
+window.location="quiz.html";
+
+}
+
+const themeBtn=document.getElementById("themeBtn");
+
+themeBtn.onclick=()=>{
+
+document.body.classList.toggle("light");
+
+if(document.body.classList.contains("light")){
+
+themeBtn.innerHTML="☀️";
+
+localStorage.setItem("theme","light");
+
+}else{
+
+themeBtn.innerHTML="🌙";
+
+localStorage.setItem("theme","dark");
+
+}
+
+}
+
+window.onload=()=>{
+
+if(localStorage.getItem("theme")=="light"){
+
+document.body.classList.add("light");
+
+themeBtn.innerHTML="☀️";
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
