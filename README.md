@@ -1,2 +1,23 @@
 # codsoft_tasks
-CodSoft Internship Tasks - A collection of web development projects completed during the CodSoft Web Development Internship using HTML, CSS, and JavaScript.
+# CodSoft Web Development Internship
+
+This repository contains the projects completed during my CodSoft Web Development Internship.
+
+## 📌 Projects
+
+### Level 1
+- Responsive Calculator
+
+### Level 2
+- Interactive Quiz Application
+
+### Level 3
+- Advanced Web Development Project
+
+## 🛠️ Technologies Used
+- HTML5
+- CSS3
+- JavaScript
+
+## 👩‍💻 Author
+Ayushi Choudhary
